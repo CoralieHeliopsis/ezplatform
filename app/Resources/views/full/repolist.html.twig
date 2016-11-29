@@ -1,0 +1,53 @@
+{% extends "pagelayout.html.twig" %}
+
+{% block content %}
+    <section class="buttons">
+        <div class="container">
+            <div class="row regular-content-size">
+                <div class="col-xs-10 col-xs-offset-1 box-style">
+                    <h3 class="center bottom-plus new-header">Liste des dépôts</h3>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr class="table-header">
+                            <th>Titre</th>
+                            <th>Lien vers le dépôt</th>
+                            <th>Description</th>
+                            <th>Thème</th>
+                            <th>Langage</th>
+                            <th>Type</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>
+                                <h3 class="header-link-table"><strong>EOVI Extranet Adhérent</strong></h3>
+                            </td>
+                            <td>
+                                <a href="repolist.html.twig" target="_self">EOVI EAI</a></strong></h3>
+                            </td>
+                            <td>
+                                <p>Code de l'extranet des adhérents de "EOVI Mutuelle".</p>
+                            </td>
+                            <td>
+                                <p>mutuelle</p>
+                            </td>
+                            <td>
+                                <p>PHP</p>
+                            </td>
+                            <td>
+                                <p>Site</p>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                        {# boucle for pour boucler sur les repos #}
+
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

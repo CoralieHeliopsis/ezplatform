@@ -29,3 +29,10 @@ ezpublish:
             # so removing eng-GB from this list may lead to errors or content not being shown, unless you change
             # all eng-GB data to other locales first.
             languages: [eng-GB]
+#        default:
+#            content_view:
+#                full:
+#                    repolist:
+#                        template: "full/repolist.html.twig"
+#                        match:
+#                            Id\Location: 2
