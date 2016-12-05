@@ -27,15 +27,24 @@ class DefaultController extends Controller
      */
     public function repoListAction()
     {
+        $content = http_build_query(array(
+            'html_url' => 'html_url',
+            'description' => 'description',
+            'id' => 'id'
+        ));
 
+        $context = stream_context_create(array(
+            'http' => array(
+                'method' => 'GET',
+                'header' => 'Content-type: application/x-www-form-urlencoded\r\n',
+                'user_agent'=> $_SERVER['HTTP_USER_AGENT'],
+                'content' => $content
+            )
+        ));
 
+        $repositories = json_decode(file_get_contents('https://api.github.com/search/repositories?q=user:CoralieHeliopsis', NULL, $context));
 
-//        return $this->render('full/repolist.html.twig');
-
-
-        $token = 'a62cbd287b8cd973cfb06c501ff04d45567029df';
-
-        $repositories = json_decode(file_get_contents('https://api.github.com/search/repositories?q=user:CoralieHeliopsis' . $token ), true);
+       var_dump(file_get_contents('https://api.github.com/search/repositories?q=user:CoralieHeliopsis', NULL, $context ));
 
         return $this->render('full/repolist.html.twig', array(
             'repositories' => $repositories,
@@ -44,21 +53,3 @@ class DefaultController extends Controller
 
     }
 }
-
-
-/** repoListAction()
- * utiliser l'api github pour accéder au compte de l'organisation heliopsis
- * utiliser le container de service pour aller chercher le service?
- *
- *
- *
- *
- *https://api.github.com/search/users?q=tom+repos:%3E42+followers:%3E1000
-
- *
- *
- *https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc
- *
- * var_dump(file_get_contents('https://api.github.com/users/CoralieHeliopsis/repos'));
- * dump(file_get_contents('https://api.github.com/search/users?q=CoralieHeliopsis'));
- */
