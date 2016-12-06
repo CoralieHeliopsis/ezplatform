@@ -11,16 +11,18 @@
                     <tr class="table-header">
                         <th data-field="id">Id</th>
                         <th data-field="name">Nom</th>
+                        <th data-field="private">Statut</th>
                         <th data-field="description">Description</th>
                         <th data-field="html_url">URL</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    {% for repository in repositories %}
+                    {% for repository in repositories if repository.private == 'true' %}
                         <tr>
                             <td>{{ repository.id }}</td>
                             <td>{{ repository.name }}</td>
+                            <td>Privé</td>
                             <td>{{ repository.description }}</td>
                             <td>{{ repository.html_url }}</td>
                         </tr>
@@ -32,50 +34,3 @@
     </div>
 </section>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-{#<table class="table table-hover">#}
-    {#<thead>#}
-    {#<tr class="table-header">#}
-        {#<th>Titre</th>#}
-        {#<th>Lien vers le dépôt</th>#}
-        {#<th>Description</th>#}
-        {#<th>Thème</th>#}
-        {#<th>Langage</th>#}
-        {#<th>Type</th>#}
-    {#</tr>#}
-    {#</thead>#}
-
-    {#<tbody>#}
-    {#<tr>#}
-        {#<td>#}
-            {#<h3 class="header-link-table"><strong>EOVI Extranet Adhérent</strong></h3>#}
-        {#</td>#}
-        {#<td>#}
-            {#<a href="repolist.html.twig" target="_self">EOVI EAI</a></strong></h3>#}
-        {#</td>#}
-        {#<td>#}
-            {#<p>Code de l'extranet des adhérents de "EOVI Mutuelle".</p>#}
-        {#</td>#}
-        {#<td>#}
-            {#<p>mutuelle</p>#}
-        {#</td>#}
-        {#<td>#}
-            {#<p>PHP</p>#}
-        {#</td>#}
-        {#<td>#}
-            {#<p>Site</p>#}
-        {#</td>#}
-    {#</tr>#}
-    {#</tbody>#}
-
-{#</table>#}
